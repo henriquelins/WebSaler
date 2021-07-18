@@ -24,14 +24,14 @@ namespace WebSaler.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var list = await _sellerService.FindAllAsync();            
+            var list = await _sellerService.FindAllAsync();
             return View(list);
         }
 
         public async Task<IActionResult> Create()
         {
             var departments = await _departmentService.FindAllAsync();
-            var viewModel = new SellerFormViewModel { Departments = departments};
+            var viewModel = new SellerFormViewModel { Departments = departments };
             return View(viewModel);
         }
 
@@ -51,13 +51,13 @@ namespace WebSaler.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-          if(id == null)
+            if (id == null)
             {
-                return RedirectToAction(nameof(Error), new { message = "Id not provided"});
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
             }
 
             var obj = await _sellerService.FindByIdAsync(id.Value);
-            if(obj == null)
+            if (obj == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
@@ -70,8 +70,15 @@ namespace WebSaler.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _sellerService.RemoveAsync(id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _sellerService.RemoveAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (IntegrityException e)
+            {
+                return RedirectToAction("Can't delete seller because he/she as sales");
+            }
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -84,7 +91,7 @@ namespace WebSaler.Controllers
             var obj = await _sellerService.FindByIdAsync(id.Value);
             if (obj == null)
             {
-                return RedirectToAction(nameof(Error), new { message = "Id not found"});
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
 
             return View(obj);
@@ -138,7 +145,7 @@ namespace WebSaler.Controllers
             }
         }
 
-        public IActionResult Error (string message)
+        public IActionResult Error(string message)
         {
             var viewModel = new ErrorViewModel
             {
