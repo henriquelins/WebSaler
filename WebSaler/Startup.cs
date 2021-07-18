@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebSaler.Data;
+using WebSaler.Services;
 
 namespace WebSaler
 {
@@ -41,6 +42,8 @@ namespace WebSaler
                             builder.MigrationsAssembly("WebSaler")));
 
             services.AddScoped<SeedingService>();
+
+            services.AddScoped<SellerService>();
         }
 
 
