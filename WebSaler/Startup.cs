@@ -49,6 +49,8 @@ namespace WebSaler
             services.AddScoped<SellerService>();
 
             services.AddScoped<DepartmentService>();
+
+            services.AddScoped<SalesRecordService>();
         }
 
 

@@ -45,3 +45,4 @@ C:\Temp\ws-vs2019\WebSaler\WebSaler\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\
 C:\Temp\ws-vs2019\WebSaler\WebSaler\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Edit.cshtml.g.cs
 C:\Temp\ws-vs2019\WebSaler\WebSaler\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecords\Index.cshtml.g.cs
 C:\Temp\ws-vs2019\WebSaler\WebSaler\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecords\SimpleSearch.cshtml.g.cs
+C:\Temp\ws-vs2019\WebSaler\WebSaler\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecords\GroupingSearch.cshtml.g.cs
