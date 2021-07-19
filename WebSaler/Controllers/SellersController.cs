@@ -75,7 +75,7 @@ namespace WebSaler.Controllers
                 await _sellerService.RemoveAsync(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch (IntegrityException e)
+            catch (IntegrityException)
             {
                 return RedirectToAction("Can't delete seller because he/she as sales");
             }
